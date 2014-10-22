@@ -1,16 +1,23 @@
 source 'https://rubygems.org'
-
+ruby '2.1.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use postgresql as the database for Active Record
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+# Haml
+gem 'haml-rails'
+
+
+gem 'annotate'
+
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -30,7 +37,7 @@ gem 'spring',        group: :development
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -38,3 +45,22 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'rails_12factor', group: :production
+gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout', group: :production
+gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets', group: :production
+
+group :test do
+	gem 'rspec-rails' # rails g rspec:install
+	gem 'factory_girl_rails' # touch spec/factories.rb
+	gem 'capybara'
+	gem 'launchy'
+	gem 'faker'
+	gem 'guard-rspec'
+end
+
+group :development do
+	gem 'brakeman', :require => false
+	gem 'quiet_assets', '>= 1.0.1'
+	gem 'binding_of_caller'
+	gem 'better_errors', '>= 0.3.2'
+end
