@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  root 'pages#home'
+
+  namespace :pages, controller: :pages do
+    # Static Pages
+    # get 'about_us'
+  end
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
